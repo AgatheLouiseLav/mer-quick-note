@@ -8,10 +8,6 @@ import AllNotesPage from '../AllNotesPage/AllNotesPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [notes, setNotes] = useState([
-    "Call company",
-    "Buy Milk",
-  ]);
 
   return (
    <main>
@@ -19,7 +15,7 @@ export default function App() {
       <>
       <NavBar user={user} setUser={setUser}/>
       <Routes>
-        <Route path="/notes" element={<AllNotesPage notes={notes} setNotes={setNotes}/>}/>
+        <Route path="/notes" element={<AllNotesPage />}/>
       </Routes> 
       </>
         : 

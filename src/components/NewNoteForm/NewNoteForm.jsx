@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { createNote } from "../../utilities/note-api";
 
-export default function NewNoteForm({addNote}) {
-	const [newNote, setNewNote] = useState("");
+export default function NewNoteForm() {
 
-	 function handleAddNote(evt) {
+	const [newNote, setNewNote] = useState({
+		text: ''
+  });
+
+	 async function handleAddNote(evt) {
     	evt.preventDefault();
-    	addNote(newNote);
-    	setNewNote("");
+		try {
+			const note = await createNote()
+    			setNewNote(note);
+		} catch (error) {
+			 setError('Log In Failed - Try Again');
+		}
   	}
 	
 	return(

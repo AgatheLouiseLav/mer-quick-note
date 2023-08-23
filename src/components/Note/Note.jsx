@@ -1,7 +1,7 @@
-export default function Note({note, index}) {
+export default function Note({note}) {
 	return (
 		<div>
-			<h1>{note}</h1> <p>{index + 1}</p>
+			<h1>{note.text}</h1>
 		</div>
 	)
 }

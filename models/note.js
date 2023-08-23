@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+require('./user')
 
 const noteSchema = new Schema({
   text: {type: String, required: true},
-  user: {type: ObjectId  ,unique: true},
+  user: {type: Schema.Types.ObjectId , ref: 'User'},
 	},
    {
 	timestamps: true

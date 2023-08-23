@@ -1,15 +1,14 @@
 const Note = require('../../models/note');
 
 module.exports = {
-//  create,
+  create,
   index
 };
 
-//async function create(req, res) {
-//  const notes = await Item.find({}).sort('name').populate('category').exec();
-//  items.sort((a, b) => a.category.sortOrder - b.category.sortOrder);
-//  res.json(items);
-//}
+async function create(req, res) {
+  	const newNote = await Note.create(req.body);
+  	res.json(newNote);
+}
 
 async function index(req, res) {
 	console.log(req.params)

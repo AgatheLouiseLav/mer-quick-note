@@ -1,3 +1,2 @@
-# MERN-stack Infrastructure
+# MERN-stack Quick-Note-App
 
-Clone this repo to provide the starter code for futur Mern-Stackproject

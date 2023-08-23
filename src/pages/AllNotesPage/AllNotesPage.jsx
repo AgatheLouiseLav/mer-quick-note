@@ -9,21 +9,27 @@ import { getUser } from "../../utilities/users-service";
 export default function AllNotesPage() {
 
 	 const [notes, setNotes] = useState([]);
-	 useEffect(function() {
-    	async function getNotes() {
+
+	 	async function getNotes() {
         const notes = await noteAPI.getAll(getUser()._id);
         setNotes(notes);
-  	}
-  	getNotes()
-	},[]);
+  		}
+	 	useEffect(function() {
+  		getNotes()
+		},[]);
 
 	const noteItems = notes.map((n) =>(
 		<Note note={n} key={n._id} />
 	));
 
+	//Create Note
+	function addNote(note) {
+    	setNotes([...notes, note]);
+  	}
+
 	return (
 		<>
-			<NewNoteForm />
+			<NewNoteForm addNote={addNote} getNotes={getNotes}/>
 			<hr />
 			{noteItems}
 		</>
